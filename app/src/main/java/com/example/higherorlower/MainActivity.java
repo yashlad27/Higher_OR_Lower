@@ -13,6 +13,13 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int CompNum;
+
+    public void genRandomNum() {
+        Random rand = new Random();
+
+        CompNum = rand.nextInt(20)+1;
+    }
+
     public void guessNumber(View view){
         Log.i("info", "Button Pressed!");
 
@@ -29,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
             //System.out.println("Correct Guess");
             //Toast.makeText(this, "Correct Guess", Toast.LENGTH_LONG).show();
             message = "Correct Guess!";
+
+            genRandomNum();
+
+           // CompNum = rand.nextInt(20)+1;
         }else{
             //System.out.println("Lower");
             //Toast.makeText(this, "Lower", Toast.LENGTH_LONG).show();
@@ -46,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//          Hard coded method:
+//        Random rand = new Random();
+//        CompNum = rand.nextInt(20)+1; // Gives n such that 0 <= n < 20
 
-        Random rand = new Random();
-        CompNum = rand.nextInt(20)+1; // Gives n such that 0 <= n < 20
+        genRandomNum();
     }
 }
